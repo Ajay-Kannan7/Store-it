@@ -1,3 +1,4 @@
+import axios from 'axios'
 import {useSelector} from 'react-redux'
 import { Link } from 'react-router-dom'
 import "./cart.css"
@@ -14,6 +15,18 @@ function CartPage(props){
         window.location.reload()
     }
 
+    let handleCheckout=()=>{
+        console.log("Checkout!")
+        axios.post("https://node-e-commerce.onrender.com/create-checkout-session",cartProductData)
+        .then(res=>{
+            if(res.data.url){
+                localStorage.setItem("cart-products",JSON.stringify([]));
+                localStorage.setItem("cart-filled",false)
+                window.location.href=res.data.url
+            }
+        })
+        .catch(err=>{console.log(err)})
+    }
     // let removeProduct=(event)=>{
     //     let productElement=event.target.parentElement
     //     console.log(productElement);
@@ -38,6 +51,7 @@ function CartPage(props){
                     </div> 
                     <div className="checkout">
                         <p>Total Price: $ {props.totalPrice}</p>
+                        <button className="clear-cart" onClick={handleCheckout}>Checkout</button>
                     </div>
                 </div>
                 <button onClick={clearCart} className="clear-cart">Clear Cart</button>

@@ -8,7 +8,7 @@ import RegisterPage from './components/register/register';
 import AboutPage from './components/about/about';
 import CartPage from './components/cart/cart';
 import ProductPage from './components/products/products.js';
-import LoginHeader from './components/loginHeader/loginHeader.js';
+import CheckoutSuccess from './components/checkout-success/checkout-success.js';
 import "./app.css";
 import axios from 'axios';
 function App() {
@@ -68,6 +68,7 @@ function App() {
           <Route path="/cart" element={<CartPage data={state.homeData} totalPrice={cartElements}/>}></Route>
           <Route path="/signin" element={<LoginPage/>}></Route>
           <Route path="/register" element={<RegisterPage />}></Route>
+          <Route path="/success" element={<CheckoutSuccess />}></Route>
           <Route path="/products/:id" element={<ProductPage data={state.homeData}/>}></Route>
         </Routes>
       </BrowserRouter>
