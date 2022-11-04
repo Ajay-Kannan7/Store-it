@@ -5,7 +5,7 @@ Store-it happens to be an e-commerce website which has extensively utilized cert
   
   ii) Server-side: mongoose,express,mongodb
 
-This e-commerce website has all the necessary functionalities that we usually come across on various e-commerce websites, such as browsing products, adding it to your cart
+This e-commerce website has all the necessary functionalities that we usually come across on various e-commerce websites, such as browsing products, adding it to your cart, checking out the items through a payment gateway, 
 and so on and so forth. The data is basically being rendered from the backend using APIs created using express, and the data is fetched from the connected database in 
 mongodb using mongoose. We're sending requests for fetching data from the backend by utilzing the axios library, which is solely being used in this project for rendering data,
 logging in and registering for when the user visits the website. Furthermore, we're using redux to manage state across the application to render the data on the user interface.
