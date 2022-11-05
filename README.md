@@ -51,6 +51,34 @@ of keeping the cart items visible for when a user adds a product to the cart.
    axios.post("<URL of the backend API>", <data-to-be-sent>)  //for sending POST requests
    ```
    
+  ### 4) Payment gateway using Stripe
+  
+  I've integrated the backend API provided by Stripe within the Stripe docs to get data of the products from the backend
+  and process payment accordingly in a test mode.
+  
+  ```
+  // Setup Stripe variable
+  const stripe = require('stripe')(<Your secret key in the dashboard>);
+  
+  // API for Stripe payment, in the POST format
+      app.post('/create-checkout-session', async (req, res) => {
+      const session = await stripe.checkout.sessions.create({
+        line_items: [
+          {
+            // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+            price: '{{PRICE_ID}}',
+            quantity: 1,
+          },
+        ],
+        mode: 'payment',
+        success_url: `${YOUR_DOMAIN}/success.html`,
+        cancel_url: `${YOUR_DOMAIN}/cancel.html`,
+      });
+
+      res.redirect(303, session.url);
+    });
+  ```
+   
    ## Desktop Design
    ![image](https://user-images.githubusercontent.com/78952955/199300955-f0ad13dc-613a-4c37-9004-dfb238824e61.png)
 
