@@ -88,7 +88,7 @@ of keeping the cart items visible for when a user adds a product to the cart.
    ## Hosting
    Front-end: Netlify
    
-   Back-end: Render
+   Back-end: Railway hosting service
    
    ## Live URL
    https://store-it.netlify.app/ 
