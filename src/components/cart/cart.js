@@ -17,7 +17,7 @@ function CartPage(props){
 
     let handleCheckout=()=>{
         console.log("Checkout!")
-        axios.post("https://node-e-commerce.onrender.com/create-checkout-session",cartProductData)
+        axios.post("https://e-com-backend.up.railway.app/create-checkout-session",cartProductData)
         .then(res=>{
             if(res.data.url){
                 localStorage.setItem("cart-products",JSON.stringify([]));
