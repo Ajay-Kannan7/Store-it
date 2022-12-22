@@ -23,7 +23,7 @@ function App() {
   let dispatch=useDispatch()
 
   useEffect(()=>{ 
-    axios.get("https://e-com-backend.up.railway.app/")
+    axios.get("https://node-e-commerce.onrender.com/")
     .then(res=>{
       dispatch({
         type:"LOADDATA",
